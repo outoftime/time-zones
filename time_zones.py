@@ -1,4 +1,5 @@
 from collections import defaultdict
+import random
 import re
 import sys
 import shapefile
@@ -65,9 +66,9 @@ def gmt_solar_noon(lon):
 
 def cost(solar_noon):
     if solar_noon > 13:
-        return solar_noon - 13
+        return (solar_noon - 13) ** 2
     if solar_noon < 12:
-        return 12 - solar_noon
+        return (12 - solar_noon) ** 2
     return 0
 
 
@@ -164,14 +165,33 @@ def optimal_time_zones(county_records_by_state):
     return time_zones
 
 
+def print_map_styles(time_zones):
+    for offset, states in time_zones.items():
+        color = (
+            "#"
+            + hex(random.randrange(0, 255))[2:]
+            + hex(random.randrange(0, 255))[2:]
+            + hex(random.randrange(0, 255))[2:]
+        )
+        print(
+            ",".join("." + state.lower() for state in states)
+            + " { fill:"
+            + color
+            + "; }"
+        )
+
+
 if __name__ == "__main__":
     county_centroids = load_county_centroids(sys.argv[1])
 
     county_populations = load_county_populations(sys.argv[2])
 
     county_records_by_state = merge_county_records(county_centroids, county_populations)
-    for offset, states in optimal_time_zones(county_records_by_state).items():
+    time_zones = optimal_time_zones(county_records_by_state)
+    for offset, states in time_zones.items():
         print("Offset: GMT" + str(offset))
         for state in states:
             print("* " + state)
         print("")
+
+    print_map_styles(time_zones)
