@@ -7,23 +7,6 @@
 .borders {stroke:#FFFFFF; stroke-width:1}    /* color and width of borders between states */
 .dccircle {display:yes}                      /* set display to yes to show the circle for the District of Columbia, or none to hide it */
 .separator1 {stroke:#B0B0B0; stroke-width:2} /* color and width of lines around Alaska and Hawaii */
-
-.ct,.me,.ma,.nh,.nj,.ny,.ri,.vt { fill:#95afc0; }
-.al,.de,.dc,.fl,.ga,.il,.in,.ky,.md,.mi,.ms,.nc,.oh,.pa,.sc,.tn,.va,.wv,.wi { fill:#f0932b; }
-.ar,.ia,.ks,.la,.mn,.mo,.ne,.nd,.ok,.sd,.tx { fill:#eb4d4b; }
-.az,.ca,.co,.id,.mt,.nv,.nm,.ut,.wy { fill:#7ed6df; }
-.or,.wa { fill:#6ab04c; }
-.ak { fill:#be2edd; }
-.hi { fill:#4834d4; }
-
-/* Individual states can be colored as follows:
-.ks,.mt,.pa {fill:#0000FF}
-.ca,.de {fill:#FF0000}
-In this example, Kansas, Montana and Pennsylvania are colored blue, and California and Delaware are colored red.
-Place this code in the empty space below. */
-
-
-
 </style>
 </defs>
 

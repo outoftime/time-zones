@@ -66,9 +66,9 @@ def gmt_solar_noon(lon):
 
 def cost(solar_noon):
     if solar_noon > 13:
-        return (solar_noon - 13) ** 2
+        return (solar_noon - 13)
     if solar_noon < 12:
-        return (12 - solar_noon) ** 2
+        return (12 - solar_noon)
     return 0
 
 
@@ -168,17 +168,16 @@ def optimal_time_zones(county_records_by_state):
 def print_map_styles(time_zones):
     for offset, states in time_zones.items():
         color = (
-            "#"
-            + hex(random.randrange(0, 255))[2:]
-            + hex(random.randrange(0, 255))[2:]
-            + hex(random.randrange(0, 255))[2:]
+            "#xxxxxx"
         )
+        print("/* GMT" + str(offset) + " */")
         print(
             ",".join("." + state.lower() for state in states)
-            + " { fill:"
+            + " { fill: "
             + color
             + "; }"
         )
+        print("")
 
 
 if __name__ == "__main__":
