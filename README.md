@@ -12,4 +12,6 @@ You’ll need to download the data sets. You can get the county population data 
 
 Now run it like this:
 
+```sh
 $ python time_zones.py data/c_13se22/c_13se22 data/co-est2021-alldata.csv
+```
