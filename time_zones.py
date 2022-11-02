@@ -1,5 +1,4 @@
 from collections import defaultdict
-import random
 import re
 import sys
 import shapefile
